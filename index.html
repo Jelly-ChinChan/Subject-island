@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>電路實驗室：LED 與二極體電路教學</title>
+  <title>展哥電路實驗室01：LED二極體的串並聯</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -61,21 +61,35 @@
       box-shadow: inset 0 0 80px rgba(0,0,0,0.75);
     }
 
+    /* 頂部主標題 */
     .board-header {
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
     }
 
-    .main-title {
-      font-size: 1.45rem;
+    .title-line-1 {
+      font-size: 1.6rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       color: var(--chalk-white);
       text-shadow: 0 0 4px rgba(255,255,255,0.4), 2px 2px 4px rgba(0,0,0,0.8);
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 10px;
+      white-space: nowrap;
+    }
+
+    .title-line-2 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: var(--chalk-yellow);
+      text-shadow: 0 0 3px rgba(255,245,102,0.4);
       white-space: nowrap;
     }
 
@@ -129,7 +143,8 @@
 
     @media (max-width: 900px) {
       .blackboard { padding: 14px 10px; }
-      .main-title { font-size: 1.15rem; gap: 6px; }
+      .title-line-1 { font-size: 1.25rem; gap: 6px; }
+      .title-line-2 { font-size: 1.0rem; }
       .chalk-grid { grid-template-columns: 1fr; }
       .chalk-grid::before, .chalk-grid::after, .grid-h-line { display: none; }
       .cell-q1 { grid-column: 1; grid-row: 1; border-bottom: 1.5px dashed rgba(255,255,255,0.25); padding-bottom: 14px; }
@@ -310,14 +325,17 @@
 <div class="blackboard-frame">
   <div class="blackboard">
 
+    <!-- 展哥電路實驗室01 雙行主標題 -->
     <div class="board-header">
-      <h1 class="main-title">
+      <div class="title-line-1">
         <span class="sparkle">✦</span>
-        電路實驗室：LED 與二極體電路教學
+        展哥電路實驗室01
         <span class="sparkle">✦</span>
-      </h1>
+      </div>
+      <div class="title-line-2">LED二極體的串並聯</div>
     </div>
 
+    <!-- 六題網格 -->
     <div class="chalk-grid">
 
       <!-- ==================== 第 1 題（右上角）：並聯紅藍 LED ==================== -->
@@ -502,7 +520,7 @@
         <div class="bottom-note" id="note-2">藍、紅皆亮（若電壓夠高）</div>
       </div>
 
-      <!-- ==================== 第 4 題（中下方）：串聯黃綠 LED ==================== -->
+      <!-- ==================== 第 4 題（中下方）：串聯黃綠 LED（黑板原創修正：朝左導通、右+左-） ==================== -->
       <div class="q-box cell-q4">
         <div class="q-title">【第4題】串聯黃綠 LED</div>
         <div class="svg-container">
@@ -512,27 +530,28 @@
 
             <path d="M 50 90 L 110 90 L 130 90 L 175 90 L 200 90 L 245 90 L 290 90" class="wire" />
 
-            <!-- 綠燈 (左：左長右短) -->
-            <polygon points="150,90 130,80 130,100" class="led-core" id="led-4-green" fill="#52ff90" />
-            <line x1="150" y1="80" x2="150" y2="100" stroke="#fff" stroke-width="2.2" />
+            <!-- 綠燈 (左側元件：朝左導通，尖端在左 130，底在右 150，右長左短) -->
+            <polygon points="130,90 150,80 150,100" class="led-core" id="led-4-green" fill="#52ff90" />
+            <line x1="130" y1="80" x2="130" y2="100" stroke="#fff" stroke-width="2.2" />
             <text x="140" y="68" class="chalk-txt" fill="#52ff90" font-weight="bold">綠</text>
-            <text x="115" y="85" class="chalk-pin">長</text>
-            <text x="160" y="85" class="chalk-pin">短</text>
+            <text x="115" y="85" class="chalk-pin">短</text>
+            <text x="160" y="85" class="chalk-pin">長</text>
 
-            <!-- 黃燈 (右：左長右短) -->
-            <polygon points="225,90 205,80 205,100" class="led-core" id="led-4-yellow" fill="#fff566" />
-            <line x1="225" y1="80" x2="225" y2="100" stroke="#fff" stroke-width="2.2" />
+            <!-- 黃燈 (右側元件：朝左導通，尖端在左 205，底在右 225，右長左短) -->
+            <polygon points="205,90 225,80 225,100" class="led-core" id="led-4-yellow" fill="#fff566" />
+            <line x1="205" y1="80" x2="205" y2="100" stroke="#fff" stroke-width="2.2" />
             <text x="215" y="68" class="chalk-txt" fill="#fff566" font-weight="bold">黃</text>
-            <text x="190" y="85" class="chalk-pin">長</text>
-            <text x="235" y="85" class="chalk-pin">短</text>
+            <text x="190" y="85" class="chalk-pin">短</text>
+            <text x="235" y="85" class="chalk-pin">長</text>
 
+            <!-- 極性按鈕：預設右+ 左- (與二極體朝左導通完全匹配) -->
             <g class="pol-btn-group" onclick="togglePolarity(4)">
               <circle cx="50" cy="90" r="16" class="pol-circle" />
-              <text x="50" y="90" class="pol-text" id="pol-4-left">＋</text>
+              <text x="50" y="90" class="pol-text" id="pol-4-left">－</text>
             </g>
             <g class="pol-btn-group" onclick="togglePolarity(4)">
               <circle cx="290" cy="90" r="16" class="pol-circle" />
-              <text x="290" y="90" class="pol-text" id="pol-4-right">－</text>
+              <text x="290" y="90" class="pol-text" id="pol-4-right">＋</text>
             </g>
           </svg>
         </div>
@@ -546,7 +565,7 @@
         <div class="bottom-note" id="note-4">串聯需克服兩者之和（黃 2.1V + 綠 2.2V > 4.3V 皆亮）</div>
       </div>
 
-      <!-- ==================== 第 6 題（左下角）：橋式整流（正確接法重構版） ==================== -->
+      <!-- ==================== 第 6 題（左下角）：橋式整流（負載兩端完整接通無斷線版） ==================== -->
       <div class="q-box cell-q6">
         <div class="q-title">【第6題】橋式整流</div>
         <div class="svg-container">
@@ -554,59 +573,61 @@
             <text x="50" y="32" class="chalk-txt chalk-txt-sub" text-anchor="middle">點擊切換極性</text>
             <text x="50" y="46" class="chalk-txt chalk-txt-sub" text-anchor="middle">↔</text>
 
-            <!-- 1. 輸入電源導線：接在菱形橋左右兩側頂點 (左接點 100,90 / 右接點 180,90) -->
+            <!-- 1. 中間輸入電源導線：接在菱形橋左右兩頂點 (左接點 100,90 / 右接點 180,90) -->
             <path d="M 50 90 L 100 90" class="wire" />
             <path d="M 180 90 L 195 90" class="wire" />
 
             <!-- 2. 菱形電橋四個邊導線 (左 100,90 / 上 140,40 / 右 180,90 / 下 140,140) -->
             <path d="M 100 90 L 140 40 L 180 90 L 140 140 Z" class="wire" />
 
-            <!-- 3. 上下對角連接到右側負載 LED 的導線 -->
-            <!-- 上端頂點 (140,40) 連接到負載 LED 長腳 (235,55) -->
-            <path d="M 140 40 L 235 40 L 235 55" class="wire" />
-            <!-- 下端頂點 (140,140) 連接到負載 LED 短腳 (235,125) -->
-            <path d="M 140 140 L 235 140 L 235 125" class="wire" />
+            <!-- 3. 上下對角連接負載 LED 的導線（完全連接閉合，絕不斷線） -->
+            <!-- 上端頂點 (140,40) 直通右側並向下連至負載 LED 頂端長腳 (235,70) -->
+            <path d="M 140 40 L 235 40 L 235 70" class="wire" />
+            <!-- 下端頂點 (140,140) 直通右側並向上連至負載 LED 底端短腳 (235,115) -->
+            <path d="M 140 140 L 235 140 L 235 115" class="wire" />
 
-            <!-- ================= 橋上 4 顆二極體標準符號 ================= -->
-            <!-- (A) 左上臂：底在左下(115,72)，朝右上導通，頂在(125,59) -->
+            <!-- ================= 橋上 4 顆二極體符號 ================= -->
+            <!-- 左上臂 (朝右上) -->
             <polygon points="125,59 117,73 129,63" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" />
             <line x1="120" y1="54" x2="132" y2="64" stroke="#ffffff" stroke-width="2" />
 
-            <!-- (B) 右上臂：底在右下(165,72)，朝左上導通，頂在(155,59) -->
+            <!-- 右上臂 (朝左上) -->
             <polygon points="155,59 151,63 163,73" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" />
             <line x1="148" y1="64" x2="160" y2="54" stroke="#ffffff" stroke-width="2" />
 
-            <!-- (C) 左下臂：底在左上(115,108)，朝右下導通，頂在(125,121) -->
+            <!-- 左下臂 (朝右下) -->
             <polygon points="125,121 129,117 117,107" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" />
             <line x1="120" y1="126" x2="132" y2="116" stroke="#ffffff" stroke-width="2" />
 
-            <!-- (D) 右下臂：底在右上(165,108)，朝左下導通，頂在(155,121) -->
+            <!-- 右下臂 (朝左下) -->
             <polygon points="155,121 163,107 151,117" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" />
             <line x1="148" y1="116" x2="160" y2="126" stroke="#ffffff" stroke-width="2" />
 
-            <!-- ================= 右側負載 LED（垂直放置：由上往下導通） ================= -->
-            <!-- 上長下短，朝下導通 -->
-            <polygon points="235,105 224,80 246,80" class="led-core" id="led-6-load" fill="#52ff90" />
-            <line x1="223" y1="105" x2="247" y2="105" stroke="#ffffff" stroke-width="2.4" />
+            <!-- ================= 負載 LED（垂直封閉於 235,70 到 235,115 之間，朝下順向） ================= -->
+            <line x1="235" y1="70" x2="235" y2="82" class="wire" />
+            <polygon points="235,102 222,82 248,82" class="led-core" id="led-6-load" fill="#52ff90" />
+            <line x1="222" y1="102" x2="248" y2="102" stroke="#ffffff" stroke-width="2.4" />
+            <line x1="235" y1="102" x2="235" y2="115" class="wire" />
+
             <!-- 長短腳標籤 -->
-            <text x="248" y="70" class="chalk-pin">長</text>
-            <text x="248" y="122" class="chalk-pin">短</text>
+            <text x="250" y="78" class="chalk-pin">長</text>
+            <text x="250" y="112" class="chalk-pin">短</text>
 
-            <!-- LED 發光箭頭符號 (向右上方發射) -->
-            <path d="M 248 88 L 258 80" stroke="#52ff90" stroke-width="1.5" stroke-linecap="round" />
-            <path d="M 252 94 L 262 86" stroke="#52ff90" stroke-width="1.5" stroke-linecap="round" />
+            <!-- LED 發光箭頭 -->
+            <path d="M 252 86 L 262 78" stroke="#52ff90" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M 256 92 L 266 84" stroke="#52ff90" stroke-width="1.5" stroke-linecap="round" />
 
-            <!-- 負載文字說明（清楚對齊右側，不遮擋圖案） -->
-            <text x="264" y="90" class="chalk-txt" fill="#52ff90" font-size="13" font-weight="bold">✔ 負載LED</text>
-            <text x="270" y="106" class="chalk-txt chalk-txt-yellow" font-size="12" font-weight="bold">恆亮</text>
+            <!-- 負載說明標籤（清楚獨立對齊） -->
+            <text x="265" y="88" class="chalk-txt" fill="#52ff90" font-size="13" font-weight="bold">✔ 負載LED</text>
+            <text x="270" y="104" class="chalk-txt chalk-txt-yellow" font-size="12" font-weight="bold">恆亮</text>
 
-            <!-- 中間輸入端點：左側 (+) 按鈕 -->
+            <!-- 輸入端點：左側按鈕 -->
             <g class="pol-btn-group" onclick="togglePolarity(6)">
               <circle cx="50" cy="90" r="16" class="pol-circle" />
               <text x="50" y="90" class="pol-text" id="pol-6-left">＋</text>
             </g>
 
-            <!-- 中間輸入端點：右側 (－) 按鈕 -->
+            <!-- 輸入端點：右側按鈕 -->
             <g class="pol-btn-group" onclick="togglePolarity(6)">
               <circle cx="195" cy="90" r="14" class="pol-circle" />
               <text x="195" y="90" class="pol-text" id="pol-6-right" font-size="13">－</text>
@@ -628,13 +649,13 @@
 </div>
 
 <script>
-  // 記錄 6 題極性狀態 (true: 左+ 右-, false: 左- 右+)
+  // 各題極性配置 (true: 預設順向點亮狀態)
   const polarities = {
-    1: true,  // 左+ 右-
-    2: true,  // 左+ 右-
-    3: true,  // 左+ 右-
-    4: true,  // 左+ 右-
-    5: false, // 預設左- 右+ (A燈亮)
+    1: true,  // 左+ 右- (朝右導通)
+    2: true,  // 左+ 右- (朝右導通)
+    3: true,  // 左+ 右- (朝右導通)
+    4: true,  // 預設右+ 左- (二極體朝左導通，與黑板完全一致)
+    5: false, // 預設左- 右+ (A燈順向發光)
     6: true   // 中間輸入：左+ 右-
   };
 
@@ -649,6 +670,10 @@
     if (q === 6) {
       document.getElementById('pol-6-left').textContent = isNormal ? '＋' : '－';
       document.getElementById('pol-6-right').textContent = isNormal ? '－' : '＋';
+    } else if (q === 4) {
+      // 第4題：預設右+ 左-
+      document.getElementById('pol-4-left').textContent = isNormal ? '－' : '＋';
+      document.getElementById('pol-4-right').textContent = isNormal ? '＋' : '－';
     } else {
       document.getElementById(`pol-${q}-left`).textContent = isNormal ? '＋' : '－';
       document.getElementById(`pol-${q}-right`).textContent = isNormal ? '－' : '＋';
@@ -718,7 +743,7 @@
         break;
       }
 
-      case 4: {
+      case 4: { // 第 4 題：串聯黃綠（二極體朝左導通，p 為 true 代表右+左-順向導通）
         const bothOn = p && (v >= 4.3);
         setLight('led-4-yellow', 'glow-yellow', bothOn);
         setLight('led-4-green', 'glow-green', bothOn);
@@ -745,8 +770,7 @@
         break;
       }
 
-      case 6: { // 第 6 題：橋式整流（無論正接反接，負載燈皆恆亮）
-        // 2顆二極體壓降 (約1.4V) + 綠色LED壓降 (約2.2V) ≈ 3.6V
+      case 6: { // 第 6 題：橋式整流（無論正接反接均恆亮）
         const on = (v >= 3.6);
         setLight('led-6-load', 'glow-green', on);
         const note = document.getElementById('note-6');
