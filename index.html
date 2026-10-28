@@ -158,7 +158,7 @@
 
     .svg-container {
       width: 100%;
-      height: 155px;
+      height: 165px;
     }
 
     svg {
@@ -188,7 +188,6 @@
       fill: #b0bec5;
     }
 
-    /* 極性點擊按鈕：改為純白光反饋，不混淆黃色 LED */
     .pol-btn-group {
       cursor: pointer;
     }
@@ -211,7 +210,6 @@
       pointer-events: none;
     }
 
-    /* 二極體實體與高質感發光 */
     .led-core {
       stroke-width: 2.2;
       stroke: #ffffff;
@@ -245,7 +243,6 @@
       filter: none !important;
     }
 
-    /* 電壓滑桿 */
     .slider-wrap {
       margin-top: 2px;
       display: flex;
@@ -313,7 +310,6 @@
 <div class="blackboard-frame">
   <div class="blackboard">
 
-    <!-- 頂部標題 -->
     <div class="board-header">
       <h1 class="main-title">
         <span class="sparkle">✦</span>
@@ -322,7 +318,6 @@
       </h1>
     </div>
 
-    <!-- 六題網格 -->
     <div class="chalk-grid">
 
       <!-- ==================== 第 1 題（右上角）：並聯紅藍 LED ==================== -->
@@ -333,25 +328,23 @@
             <text x="50" y="32" class="chalk-txt chalk-txt-sub" text-anchor="middle">點擊切換極性</text>
             <text x="50" y="46" class="chalk-txt chalk-txt-sub" text-anchor="middle">↔</text>
 
-            <!-- 並聯導線 -->
             <path d="M 50 90 L 110 90 L 145 45 L 195 45 L 230 90 L 290 90" class="wire" />
             <path d="M 110 90 L 145 135 L 195 135 L 230 90" class="wire" />
 
-            <!-- 紅 LED (上：左長右短，朝右導通) -->
+            <!-- 紅 LED (上：左長右短) -->
             <polygon points="175,45 155,34 155,56" class="led-core" id="led-1-red" fill="#ff4d6d" />
             <line x1="175" y1="34" x2="175" y2="56" stroke="#fff" stroke-width="2.2" />
             <text x="165" y="24" class="chalk-txt" fill="#ff6b8b" font-weight="bold">紅</text>
             <text x="142" y="38" class="chalk-pin">長</text>
             <text x="185" y="38" class="chalk-pin">短</text>
 
-            <!-- 藍 LED (下：左長右短，朝右導通) -->
+            <!-- 藍 LED (下：左長右短) -->
             <polygon points="175,135 155,124 155,146" class="led-core" id="led-1-blue" fill="#38d8ff" />
             <line x1="175" y1="124" x2="175" y2="146" stroke="#fff" stroke-width="2.2" />
             <text x="165" y="162" class="chalk-txt" fill="#38d8ff" font-weight="bold">藍</text>
             <text x="142" y="148" class="chalk-pin">長</text>
             <text x="185" y="148" class="chalk-pin">短</text>
 
-            <!-- 極性按鈕 (白光反饋) -->
             <g class="pol-btn-group" onclick="togglePolarity(1)">
               <circle cx="50" cy="90" r="16" class="pol-circle" />
               <text x="50" y="90" class="pol-text" id="pol-1-left">＋</text>
@@ -397,7 +390,6 @@
             <text x="142" y="148" class="chalk-pin">長</text>
             <text x="185" y="148" class="chalk-pin">短</text>
 
-            <!-- 極性按鈕 -->
             <g class="pol-btn-group" onclick="togglePolarity(3)">
               <circle cx="50" cy="90" r="16" class="pol-circle" />
               <text x="50" y="90" class="pol-text" id="pol-3-left">＋</text>
@@ -415,7 +407,7 @@
           </div>
           <div class="range-minmax"><span>0.0V</span><span>10.0V</span></div>
         </div>
-        <div class="bottom-note" id="note-3">跨到電壓（黃綠皆亮）</div>
+        <div class="bottom-note" id="note-3">黃燈需 > 2.1V、綠燈需 > 2.2V（皆跨過門檻發光）</div>
       </div>
 
       <!-- ==================== 第 5 題（左上角）：反向並聯 LED ==================== -->
@@ -429,21 +421,20 @@
             <path d="M 50 90 L 105 90 L 140 50 L 205 50 L 240 90 L 290 90" class="wire" />
             <path d="M 105 90 L 140 130 L 205 130 L 240 90" class="wire" />
 
-            <!-- A 燈 (上：右長左短，右+時導通) -->
+            <!-- A 燈 (上：右長左短，右+導通) -->
             <polygon points="160,50 180,40 180,60" class="led-core" id="led-5-a" fill="#ff4d6d" />
             <line x1="160" y1="40" x2="160" y2="60" stroke="#fff" stroke-width="2.2" />
             <text x="142" y="38" class="chalk-pin">短</text>
             <text x="195" y="38" class="chalk-pin">長</text>
             <text x="170" y="30" class="chalk-txt" fill="#ff6b8b" font-weight="bold">A</text>
 
-            <!-- B 燈 (下：左長右短，左+時導通) -->
+            <!-- B 燈 (下：左長右短，左+導通) -->
             <polygon points="180,130 160,120 160,140" class="led-core" id="led-5-b" fill="#52ff90" />
             <line x1="180" y1="120" x2="180" y2="140" stroke="#fff" stroke-width="2.2" />
             <text x="142" y="146" class="chalk-pin">長</text>
             <text x="195" y="146" class="chalk-pin">短</text>
             <text x="170" y="156" class="chalk-txt" fill="#52ff90" font-weight="bold">B</text>
 
-            <!-- 極性按鈕 -->
             <g class="pol-btn-group" onclick="togglePolarity(5)">
               <circle cx="50" cy="90" r="16" class="pol-circle" />
               <text x="50" y="90" class="pol-text" id="pol-5-left">－</text>
@@ -477,21 +468,20 @@
 
             <path d="M 50 90 L 110 90 L 130 90 L 175 90 L 200 90 L 245 90 L 290 90" class="wire" />
 
-            <!-- 藍燈 (左：左長右短，朝右導通) -->
+            <!-- 藍燈 (左：左長右短) -->
             <polygon points="150,90 130,80 130,100" class="led-core" id="led-2-blue" fill="#38d8ff" />
             <line x1="150" y1="80" x2="150" y2="100" stroke="#fff" stroke-width="2.2" />
             <text x="140" y="68" class="chalk-txt" fill="#38d8ff" font-weight="bold">藍</text>
             <text x="115" y="85" class="chalk-pin">長</text>
             <text x="160" y="85" class="chalk-pin">短</text>
 
-            <!-- 紅燈 (右：左長右短，朝右導通) -->
+            <!-- 紅燈 (右：左長右短) -->
             <polygon points="225,90 205,80 205,100" class="led-core" id="led-2-red" fill="#ff4d6d" />
             <line x1="225" y1="80" x2="225" y2="100" stroke="#fff" stroke-width="2.2" />
             <text x="215" y="68" class="chalk-txt" fill="#ff6b8b" font-weight="bold">紅</text>
             <text x="190" y="85" class="chalk-pin">長</text>
             <text x="235" y="85" class="chalk-pin">短</text>
 
-            <!-- 極性按鈕 -->
             <g class="pol-btn-group" onclick="togglePolarity(2)">
               <circle cx="50" cy="90" r="16" class="pol-circle" />
               <text x="50" y="90" class="pol-text" id="pol-2-left">＋</text>
@@ -536,7 +526,6 @@
             <text x="190" y="85" class="chalk-pin">長</text>
             <text x="235" y="85" class="chalk-pin">短</text>
 
-            <!-- 極性按鈕 -->
             <g class="pol-btn-group" onclick="togglePolarity(4)">
               <circle cx="50" cy="90" r="16" class="pol-circle" />
               <text x="50" y="90" class="pol-text" id="pol-4-left">＋</text>
@@ -554,10 +543,10 @@
           </div>
           <div class="range-minmax"><span>0.0V</span><span>10.0V</span></div>
         </div>
-        <div class="bottom-note" id="note-4">當電壓足夠時（黃綠兩燈皆亮）</div>
+        <div class="bottom-note" id="note-4">串聯需克服兩者之和（黃 2.1V + 綠 2.2V > 4.3V 皆亮）</div>
       </div>
 
-      <!-- ==================== 第 6 題（左下角）：橋式整流 ==================== -->
+      <!-- ==================== 第 6 題（左下角）：橋式整流（正確接法重構版） ==================== -->
       <div class="q-box cell-q6">
         <div class="q-title">【第6題】橋式整流</div>
         <div class="svg-container">
@@ -565,31 +554,62 @@
             <text x="50" y="32" class="chalk-txt chalk-txt-sub" text-anchor="middle">點擊切換極性</text>
             <text x="50" y="46" class="chalk-txt chalk-txt-sub" text-anchor="middle">↔</text>
 
-            <path d="M 50 90 L 95 90" class="wire" />
-            <path d="M 125 50 L 165 90 L 125 130 L 85 90 Z" class="wire" />
+            <!-- 1. 輸入電源導線：接在菱形橋左右兩側頂點 (左接點 100,90 / 右接點 180,90) -->
+            <path d="M 50 90 L 100 90" class="wire" />
+            <path d="M 180 90 L 195 90" class="wire" />
 
-            <!-- 4顆整流二極體 -->
-            <polygon points="100,75 110,65 110,85" fill="#fff" />
-            <polygon points="140,65 150,75 140,85" fill="#fff" />
-            <polygon points="110,95 100,105 110,115" fill="#fff" />
-            <polygon points="140,95 150,105 140,115" fill="#fff" />
+            <!-- 2. 菱形電橋四個邊導線 (左 100,90 / 上 140,40 / 右 180,90 / 下 140,140) -->
+            <path d="M 100 90 L 140 40 L 180 90 L 140 140 Z" class="wire" />
 
-            <!-- 輸出路徑 -->
-            <path d="M 165 90 L 210 90" class="wire" />
-            <path d="M 235 90 L 265 90 L 265 145 L 85 145 L 85 90" class="wire" />
+            <!-- 3. 上下對角連接到右側負載 LED 的導線 -->
+            <!-- 上端頂點 (140,40) 連接到負載 LED 長腳 (235,55) -->
+            <path d="M 140 40 L 235 40 L 235 55" class="wire" />
+            <!-- 下端頂點 (140,140) 連接到負載 LED 短腳 (235,125) -->
+            <path d="M 140 140 L 235 140 L 235 125" class="wire" />
 
-            <!-- 負載 LED (朝右導通) -->
-            <polygon points="230,90 215,80 215,100" class="led-core" id="led-6-load" fill="#52ff90" />
-            <line x1="230" y1="80" x2="230" y2="100" stroke="#fff" stroke-width="2.2" />
-            
-            <text x="238" y="72" class="chalk-txt" fill="#52ff90" font-size="15" font-weight="bold">✔</text>
-            <text x="250" y="74" class="chalk-txt chalk-txt-sub" font-size="11">負載LED</text>
-            <text x="245" y="98" class="chalk-txt chalk-txt-yellow" font-size="11" font-weight="bold">恆亮</text>
+            <!-- ================= 橋上 4 顆二極體標準符號 ================= -->
+            <!-- (A) 左上臂：底在左下(115,72)，朝右上導通，頂在(125,59) -->
+            <polygon points="125,59 117,73 129,63" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" />
+            <line x1="120" y1="54" x2="132" y2="64" stroke="#ffffff" stroke-width="2" />
 
-            <!-- 極性按鈕 -->
+            <!-- (B) 右上臂：底在右下(165,72)，朝左上導通，頂在(155,59) -->
+            <polygon points="155,59 151,63 163,73" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" />
+            <line x1="148" y1="64" x2="160" y2="54" stroke="#ffffff" stroke-width="2" />
+
+            <!-- (C) 左下臂：底在左上(115,108)，朝右下導通，頂在(125,121) -->
+            <polygon points="125,121 129,117 117,107" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" />
+            <line x1="120" y1="126" x2="132" y2="116" stroke="#ffffff" stroke-width="2" />
+
+            <!-- (D) 右下臂：底在右上(165,108)，朝左下導通，頂在(155,121) -->
+            <polygon points="155,121 163,107 151,117" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" />
+            <line x1="148" y1="116" x2="160" y2="126" stroke="#ffffff" stroke-width="2" />
+
+            <!-- ================= 右側負載 LED（垂直放置：由上往下導通） ================= -->
+            <!-- 上長下短，朝下導通 -->
+            <polygon points="235,105 224,80 246,80" class="led-core" id="led-6-load" fill="#52ff90" />
+            <line x1="223" y1="105" x2="247" y2="105" stroke="#ffffff" stroke-width="2.4" />
+            <!-- 長短腳標籤 -->
+            <text x="248" y="70" class="chalk-pin">長</text>
+            <text x="248" y="122" class="chalk-pin">短</text>
+
+            <!-- LED 發光箭頭符號 (向右上方發射) -->
+            <path d="M 248 88 L 258 80" stroke="#52ff90" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M 252 94 L 262 86" stroke="#52ff90" stroke-width="1.5" stroke-linecap="round" />
+
+            <!-- 負載文字說明（清楚對齊右側，不遮擋圖案） -->
+            <text x="264" y="90" class="chalk-txt" fill="#52ff90" font-size="13" font-weight="bold">✔ 負載LED</text>
+            <text x="270" y="106" class="chalk-txt chalk-txt-yellow" font-size="12" font-weight="bold">恆亮</text>
+
+            <!-- 中間輸入端點：左側 (+) 按鈕 -->
             <g class="pol-btn-group" onclick="togglePolarity(6)">
               <circle cx="50" cy="90" r="16" class="pol-circle" />
               <text x="50" y="90" class="pol-text" id="pol-6-left">＋</text>
+            </g>
+
+            <!-- 中間輸入端點：右側 (－) 按鈕 -->
+            <g class="pol-btn-group" onclick="togglePolarity(6)">
+              <circle cx="195" cy="90" r="14" class="pol-circle" />
+              <text x="195" y="90" class="pol-text" id="pol-6-right" font-size="13">－</text>
             </g>
           </svg>
         </div>
@@ -610,12 +630,12 @@
 <script>
   // 記錄 6 題極性狀態 (true: 左+ 右-, false: 左- 右+)
   const polarities = {
-    1: true,  // 左+ 右- (順向點亮)
-    2: true,  // 左+ 右- (順向點亮)
-    3: true,  // 左+ 右- (順向點亮)
-    4: true,  // 左+ 右- (順向點亮)
-    5: false, // 預設左- 右+ (A燈長腳接+順向亮)
-    6: true   // 正向輸入
+    1: true,  // 左+ 右-
+    2: true,  // 左+ 右-
+    3: true,  // 左+ 右-
+    4: true,  // 左+ 右-
+    5: false, // 預設左- 右+ (A燈亮)
+    6: true   // 中間輸入：左+ 右-
   };
 
   function togglePolarity(q) {
@@ -628,6 +648,7 @@
     const isNormal = polarities[q];
     if (q === 6) {
       document.getElementById('pol-6-left').textContent = isNormal ? '＋' : '－';
+      document.getElementById('pol-6-right').textContent = isNormal ? '－' : '＋';
     } else {
       document.getElementById(`pol-${q}-left`).textContent = isNormal ? '＋' : '－';
       document.getElementById(`pol-${q}-right`).textContent = isNormal ? '－' : '＋';
@@ -656,9 +677,9 @@
     const p = polarities[q];
 
     switch(q) {
-      case 1: { // 第 1 題：並聯紅藍 LED
+      case 1: {
         const redOn = p && (v >= 2.0);
-        const blueOn = false; // 紅燈箝位電壓
+        const blueOn = false;
         setLight('led-1-red', 'glow-red', redOn);
         setLight('led-1-blue', 'glow-blue', blueOn);
         const note = document.getElementById('note-1');
@@ -668,8 +689,8 @@
         break;
       }
 
-      case 2: { // 第 2 題：串聯紅藍 LED
-        const bothOn = p && (v >= 5.0); // 2.0 + 3.0 = 5.0V
+      case 2: {
+        const bothOn = p && (v >= 5.0);
         setLight('led-2-red', 'glow-red', bothOn);
         setLight('led-2-blue', 'glow-blue', bothOn);
         const note = document.getElementById('note-2');
@@ -679,32 +700,42 @@
         break;
       }
 
-      case 3: { // 第 3 題：並聯黃綠 LED
+      case 3: {
         const yOn = p && (v >= 2.1);
         const gOn = p && (v >= 2.2);
         setLight('led-3-yellow', 'glow-yellow', yOn);
         setLight('led-3-green', 'glow-green', gOn);
         const note = document.getElementById('note-3');
-        if (!p) note.textContent = '極性反接：兩燈均不亮';
-        else if (v < 2.1) note.textContent = '電壓不足：未達導通門檻';
-        else note.textContent = '跨到電壓（黃綠皆亮）';
+        if (!p) {
+          note.textContent = '極性反接：兩燈均截止不亮';
+        } else if (v < 2.1) {
+          note.textContent = '電壓不足（黃需 > 2.1V、綠需 > 2.2V）';
+        } else if (v < 2.2) {
+          note.textContent = '電壓 > 2.1V（僅黃燈亮，綠燈未達 2.2V）';
+        } else {
+          note.textContent = '黃燈需 > 2.1V、綠燈需 > 2.2V（皆跨過門檻發光）';
+        }
         break;
       }
 
-      case 4: { // 第 4 題：串聯黃綠 LED
-        const bothOn = p && (v >= 4.3); // 2.1 + 2.2 = 4.3V
+      case 4: {
+        const bothOn = p && (v >= 4.3);
         setLight('led-4-yellow', 'glow-yellow', bothOn);
         setLight('led-4-green', 'glow-green', bothOn);
         const note = document.getElementById('note-4');
-        if (!p) note.textContent = '極性反接：串聯截止全滅';
-        else if (v < 4.3) note.textContent = `電壓不足 (${v.toFixed(1)}V < 4.3V 門檻)`;
-        else note.textContent = '當電壓足夠時（黃綠兩燈皆亮）';
+        if (!p) {
+          note.textContent = '極性反接：串聯截止全滅';
+        } else if (v < 4.3) {
+          note.textContent = `電壓不足（需 > 4.3V 總門檻：黃 2.1V + 綠 2.2V）`;
+        } else {
+          note.textContent = '串聯需克服兩者之和（黃 2.1V + 綠 2.2V > 4.3V 皆亮）';
+        }
         break;
       }
 
-      case 5: { // 第 5 題：反向並聯 LED
-        const aOn = (!p) && (v >= 2.0); // 右+ 左-
-        const bOn = p && (v >= 2.0);    // 左+ 右-
+      case 5: {
+        const aOn = (!p) && (v >= 2.0);
+        const bOn = p && (v >= 2.0);
         setLight('led-5-a', 'glow-red', aOn);
         setLight('led-5-b', 'glow-green', bOn);
         const note = document.getElementById('note-5');
@@ -714,12 +745,13 @@
         break;
       }
 
-      case 6: { // 第 6 題：橋式整流
-        const on = (v >= 3.2);
+      case 6: { // 第 6 題：橋式整流（無論正接反接，負載燈皆恆亮）
+        // 2顆二極體壓降 (約1.4V) + 綠色LED壓降 (約2.2V) ≈ 3.6V
+        const on = (v >= 3.6);
         setLight('led-6-load', 'glow-green', on);
         const note = document.getElementById('note-6');
-        if (v < 3.2) {
-          note.textContent = `電壓不足 (${v.toFixed(1)}V < 3.2V 門檻)`;
+        if (v < 3.6) {
+          note.textContent = `電壓不足 (${v.toFixed(1)}V < 3.6V 門檻)`;
         } else {
           note.textContent = '無論改變極性，負載燈均恆亮！';
         }
@@ -728,7 +760,6 @@
     }
   }
 
-  // 初始化執行
   for (let i = 1; i <= 6; i++) {
     updatePolarityUI(i);
     refreshCircuit(i);
